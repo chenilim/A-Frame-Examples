@@ -16,11 +16,11 @@
 <script>
 // if raycaster is pointing at this object, press trigger to change color
 AFRAME.registerComponent("raycaster-color-change", {
-    init: function () 
+    init: function ()
     {
         this.colors = ["red", "orange", "yellow", "green", "blue", "violet"];
 
-        this.controllerData = document.querySelector("#controller-data").components["controller-listener"];        
+        this.controllerData = document.querySelector("#controller-data").components["controller-listener"];
         this.hoverData      = this.el.components["raycaster-target"];
     },
 
@@ -32,7 +32,7 @@ AFRAME.registerComponent("raycaster-color-change", {
             let color = this.colors[index];
             this.el.setAttribute("color", color);
         }
-        
+
         if (!this.hoverData.hasFocus || this.controllerData.rightTrigger.released)
         {
             this.el.setAttribute("color", "#CCCCCC");
@@ -44,12 +44,12 @@ AFRAME.registerComponent("raycaster-color-change", {
 </script>
 
 <a-scene environment="preset: default;" renderer="antialias: true;">
-        
+
     <a-assets>
         <img id="gradient" src="images/gradient-fade.png" />
     </a-assets>
 
-    <a-sky 
+    <a-sky
         color = "#000337">
     </a-sky>
 
@@ -63,21 +63,21 @@ AFRAME.registerComponent("raycaster-color-change", {
         raycaster-target>
     </a-plane>
 
-    <a-entity 
-        id="player" 
-        position="0 0 0" 
+    <a-entity
+        id="player"
+        position="0 0 0"
         player-move="controllerListenerId: #controller-data;
                      navigationMeshClass: groundPlane;">
-        
+
         <a-camera></a-camera>
-    
-        <a-entity 
-            id="controller-data" 
-            controller-listener="leftControllerId:  #left-controller; 
+
+        <a-entity
+            id="controller-data"
+            controller-listener="leftControllerId:  #left-controller;
                                  rightControllerId: #right-controller;">
         </a-entity>
 
-        <a-entity 
+        <a-entity
             id="left-controller"
             oculus-touch-controls="hand: left">
         </a-entity>
@@ -87,23 +87,23 @@ AFRAME.registerComponent("raycaster-color-change", {
             id="right-controller"
             oculus-touch-controls="hand: right"
             raycaster="objects: .raycaster-target; interval: 0;"
-            raycaster-extras="controllerListenerId: #controller-data; 
+            raycaster-extras="controllerListenerId: #controller-data;
                               beamImageSrc: #gradient; beamLength: 0.5;">
         </a-entity>
 
     </a-entity>
 
-    <a-torus-knot 
+    <a-torus-knot
         p="2" q="3" radius="0.5" radius-tubular="0.1"
         position = "-2.5 1.5 -4"
         color="#CC3333"
         raycaster-target>
     </a-torus-knot>
-    
+
     <a-box
         width = "2" height = "1" depth = "1"
         position = "-1 0.5 -3"
-        rotation = "0 45 0"  
+        rotation = "0 45 0"
         color = "#FF8800"
         class = ""
         raycaster-target>
@@ -115,11 +115,11 @@ AFRAME.registerComponent("raycaster-color-change", {
         color = "#DDBB00"
         raycaster-target>
     </a-sphere>
-    
+
     <a-cylinder
         radius = "0.5" height = "1.5"
         position = " 1 0.75 -3"
-        color = "#008800" 
+        color = "#008800"
         raycaster-target>
     </a-cylinder>
 
@@ -129,8 +129,8 @@ AFRAME.registerComponent("raycaster-color-change", {
         color = "#4444CC"
         raycaster-target>
     </a-cone>
-    
-    <a-torus 
+
+    <a-torus
         radius="0.5" radius-tubular="0.1"
         position = "2 3 -4"
         rotation = "30 -20 0"
@@ -139,6 +139,16 @@ AFRAME.registerComponent("raycaster-color-change", {
     </a-torus>
 
     <!-- demo interaction boxes -->
+
+	<a-torus
+		radius="0.5" radius-tubular="0.1"
+		position = "2 5 -3"
+		rotation = "30 -20 0"
+		color="#88FF90"
+        raycaster-target="canGrab: true;"
+        raycaster-color-change
+		raycaster-target>
+	</a-torus>
 
     <a-dodecahedron
         radius = "0.5"
