@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Simplified Eiffel Tower</title>
+	<script src="js/aframe-master-v1.3.0.min.js"></script>
+</head>
+
+<body>
+	<a-scene>
+		<a-camera position="0 0 5"></a-camera>
+
+		<!-- Base of the tower -->
+		<a-box position="0 -3 -10" width="8" height="0.2" depth="8" color="#8090aa"></a-box>
+
+		<!-- Middle section -->
+		<a-cylinder position="0 1 -10" radius="2" height="4" color="#ff0080"></a-cylinder>
+
+		<!-- Top section -->
+		<a-cone position="0 5 -10" radius-bottom="2" radius-top="0.5" height="4" color="gray"></a-cone>
+
+		<!-- Tower details -->
+		<a-cone position="0 6.5 -10" radius-bottom="1.5" radius-top="0.5" height="2" color="gray"></a-cone>
+		<a-cone position="0 7.5 -10" radius-bottom="1" radius-top="0.3" height="1.5" color="gray"></a-cone>
+		<a-cone position="0 8.5 -10" radius-bottom="0.5" radius-top="0.1" height="1" color="gray"></a-cone>
+
+		<!-- Antenna -->
+		<a-cylinder position="0 9.5 -10" radius="0.1" height="2" color="gray"></a-cylinder>
+		<a-cone position="0 10.5 -10" radius-bottom="0.3" radius-top="0" height="1" color="gray"></a-cone>
+	</a-scene>
+</body>
+
+</html>
