@@ -10,11 +10,17 @@
 <body>
 	<a-scene>
 		<a-assets>
+			<a-asset-item id="dodecahedron" src="dodecahedron.obj"></a-asset-item>
+			<a-asset-item id="cube" src="cube.obj"></a-asset-item>
 			<img id="tower-texture" src="https://cdn.pixabay.com/photo/2016/06/24/10/47/eiffel-tower-1477214_960_720.jpg">
 		</a-assets>
 
+		<a-entity position="0 20 -10" scale="1 1 1" obj-model="obj: #dodecahedron" material="src: #tower-texture"></a-entity>
+
+		<a-entity position="0 12 -10" scale="1 1 1" obj-model="obj: #cube" material="color: #90FFCC"></a-entity>
+
 		<a-entity id="cameraRig" position="0 0 0">
-			<a-camera id="camera" wasd-controls-enabled="false"></a-camera>
+			<a-camera id="camera" wasd-controls-enabled="true" wasd-controls="fly: true" look-controls="reverseMouseDrag: true"></a-camera>
 		</a-entity>
 
 		<!-- Base of the tower -->
